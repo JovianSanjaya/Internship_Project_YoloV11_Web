@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>SIMTech AI Detection Model</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
+
+</head>
+<body>
+
+    <nav>
+        <div class = "nav-logo" >
+            <a href="#">
+                <img class="astarlogo" src="/static/astar.png" >
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li class = "link"><a href="#">HOME</a></li>
+            <li id = "link1" class = "link"><a href="#">OFFLINE DETECTION</a></li>
+            <li id = "link2" class = "link"><a href="#">CONTACT US</a></li>
+        </ul>
+        <div class="login">
+            <button id="signup">Get Started</button>
+        </div>
+    </nav>
+    
+
+    <header>
+        <div class="left">
+            <h1><span>OIS</span><br></h1>
+            <span class="second-line">AI Detection Model</span>
+            <p>
+                The OIS AI Detection Model enhances manufacturing by using the powerful YOLOv11 algorithm on 
+                a Raspberry Pi for real-time, on-device defect detection. It automates quality control,
+                reduces human error, and minimizes downtime. With a user-friendly web interface, 
+                the model enables offline swift defect identification, seamless integration into
+                production, and improving both efficiency and product quality.
+            </p>
+        </div>
+
+    </header>
+
+    <section class="container">
+
+        <div class="buffer"></div>
+        
+        <p class="sub-header">OFFLINE DETECTION</p>
+ 
+        <div class="offline">
+
+            <div class="card">
+                <div class="content">
+                    <h3>Input</h3>
+                    <form id="upload-form" action="/object-detection/" method="post" enctype="multipart/form-data">
+                        <label class ="title-card" for="image">Select Image</label><br/><br/>
+                        <input type="file" id="image" name="image" accept="image/*" onchange="displayImage(event)"><br><br>
+                        <input class="btn1" type="button" value="Upload Image" onclick="uploadImage()">
+                        <img id="input-image" src="" ><br><br>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="content">
+                    <h3>Apply Detection</h3>
+                    <label class ="title-card" for="image">Output Image</label><br/><br/>
+                    
+                    <input class="btn2"  type="submit" value="Apply Detection" onclick="applyDetection()">
+
+                    <div class="loader-container">
+                        <div id="loader" style="display: none;"></div>
+                    </div>
+                    
+
+                    <img id="output-image" src="" ><br/>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="content">
+                    <h3>Statistical Analysis</h3>
+
+                        <label class ="title-card" for="image">Defects Size and Distribution</label><br/><br/>
+
+                    <form onsubmit="loadAndDisplayCharts(); return false;">
+                        <input class="btn3"  type="submit" value="Result Virtualization">
+                    </form>
+
+                    <canvas id="defectChart" ></canvas>
+                    <canvas id="areaChart" ></canvas>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   <footer>
+        <h3>Agency for Science, Technology and Research (A*STAR)</h3>
+        <div class="right">
+            <div class="links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cooperation</a>
+                <a href="#">Sponsorship</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="social">
+                <a href="https://www.instagram.com/astarsg/"><i class='bx bxl-instagram' style='color:#fffdfd'></i></a>
+                <a href="https://www.facebook.com/ASTARSG/"><i class='bx bxl-facebook-square' style='color:#fffdfd'></i></a>
+                <a href="https://www.linkedin.com/company/astarsg/"><i class='bx bxl-linkedin' style='color:#fffdfd' ></i></a>
+                <a href="https://www.youtube.com/channel/UCcyl37Tw2p4eGnvpuPRFbzQ"><i class='bx bxl-youtube' style='color:#fffdfd'></i></a>
+            </div>
+            <p>©2024, Agency for Science, Technology and Research (A*STAR).</p>
+        </div>
+    </footer>
+
+    <script src="/static/scripts.js" type="module"></script>  
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

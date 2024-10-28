@@ -1,0 +1,560 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Montserrat:wght@700&family=Open+Sans&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu',sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+
+body{
+    background-color: #fff;
+}
+
+nav{
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.nav-logo{
+    margin-top: 20px;
+}
+
+.astarlogo{
+    width: 230px;
+    display: flex;
+    border-style: none;
+    display: none;
+}
+
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem ;
+    margin-top: 30px;
+
+}
+
+.link a{
+    position: relative;
+    padding-bottom: 0.75rem;
+    color:#083484;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins',sans-serif;
+}
+
+.link a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #083484;
+    transition: all 0.3s ease;
+
+}
+
+.link a:hover::after{
+    width: 70%;
+}
+
+nav .login button{
+    padding: 8px 14px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+nav .login button#signup{
+    background-color: #083484;
+    color: #fff;
+    border-radius: 4px;
+    margin-right: 14px;
+    padding: 15px 20px;
+    margin-top: 25px;
+    display: none;
+
+}
+
+header{
+    padding: 0 80px;
+    height: calc(100vh-80px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .left h1 {
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    margin-top: 17rem;
+    
+}
+
+header .left span{
+    font-size: 80px;
+    color: #083484;
+    display: flex;
+    justify-content: center;
+
+}
+header .left .second-line{
+    font-size: 80px;
+    color: #083484;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+
+}
+
+header .left p{
+    margin-top: 35px;
+    font-stretch: ultra-condensed;
+    color: #777;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+header .left a{
+    display: flex;
+    align-items: center;
+    background: #083484;
+    width: 150px;
+    padding: 8px;
+    border-radius: 60px;
+}
+
+header .left a i{
+    background-color: #fff;
+    font-size: 24px;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+header .left a span{
+    color: #fff;
+    margin-left: 22px;
+}
+
+
+
+
+/*------------------------------------------------------------------------------*/
+
+/* 3 cards */
+
+.container {
+    padding:30px;
+    text-align: center;
+    overflow: auto;
+}
+
+
+.buffer{
+    margin-top: 27rem;
+}
+
+
+.sub-header {
+    font-size: 4em;
+    text-align: center;
+    opacity: 0; /* Start hidden */
+    transform: translateY(50px); /* Move down */
+    transition: opacity 1.5s ease, transform 1.5s ease; /* Animation */
+    margin-top: 30rem; /* Space above the header */
+    color: #083484;
+    font-family: 'Montserrat',sans-serif;
+}
+
+.sub-header.visible {
+    opacity: 1; /* Show the header */
+    transform: translateY(0); /* Move back to original position */
+}
+
+.offline {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.offline .card {
+    padding: 3rem 2rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    opacity: 0; /* Start hidden */
+    transform: translateY(50px); /* Move down */
+    transition: opacity 1.5s ease, transform 1.5s ease; /* Animation */
+}
+
+.offline .card.visible {
+    opacity: 1; /* Show the card */
+    transform: translateY(0) ; /* Move back to original position */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow */
+
+}
+
+#input-image, #output-image {
+    max-width: 100%; /* Image fits within the card width */
+    height: auto;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+
+
+
+/* .offline .card:hover {
+    background-color: #083484;
+    color: #fff;
+} */
+
+
+
+.offline .card .content {
+    flex: 1;
+    margin-bottom: 2rem;
+}
+
+
+
+.offline .card h3{
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 500;
+    border-bottom: 2px solid ;
+    text-align: center;
+    color: #083484; 
+
+}
+
+/* .offline .card:hover h3 {
+    color: white; 
+} */
+
+
+
+.offline .card .title-card{
+    color: #083484; 
+
+}
+
+
+/* .offline .card:hover .title-card{
+    color: #fff; 
+
+} */
+
+.offline .card p {
+    color: #000;
+    margin-bottom: 0.75rem;
+}
+
+.offline .card p i {
+    color: #ccc;
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+}
+
+
+
+
+
+/* HTML: <div class="loader"></div> */
+/* Loader container */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: semi-transparent background */
+    z-index: 1000; /* Ensure loader appears above other content */
+}
+
+/* Loader style */
+#loader {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid lightblue;
+    border-right-color: #083484;
+    animation: l2 1s infinite linear;
+}
+
+@keyframes l2 {
+    to { transform: rotate(1turn); }
+}
+
+
+
+
+
+
+.card .btn1{
+    font: inherit;
+    background-color: #f0f0f0;
+    border: 0;
+    color: #083484;
+    border-radius: 0.5em;
+    font-size: 1.1rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 #fff;
+    box-shadow: inset 0 0.0625em 0 0 #f4f4f4, 0 0.0625em 0 0 #efefef,
+      0 0.125em 0 0 #ececec, 0 0.25em 0 0 #e0e0e0, 0 0.3125em 0 0 #dedede,
+      0 0.375em 0 0 #dcdcdc, 0 0.425em 0 0 #cacaca, 0 0.425em 0.5em 0 #cecece;
+    transition: 0.15s ease;
+    cursor: pointer;
+    margin-bottom: 5rem;
+
+}
+
+.card .btn1:active {
+    translate: 0 0.225em;
+    box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+      0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+      0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+  }
+
+
+.card .btn2{
+    font: inherit;
+    background-color: #f0f0f0;
+    border: 0;
+    color: #083484;
+    border-radius: 0.5em;
+    font-size: 1.1rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 #fff;
+    box-shadow: inset 0 0.0625em 0 0 #f4f4f4, 0 0.0625em 0 0 #efefef,
+        0 0.125em 0 0 #ececec, 0 0.25em 0 0 #e0e0e0, 0 0.3125em 0 0 #dedede,
+        0 0.375em 0 0 #dcdcdc, 0 0.425em 0 0 #cacaca, 0 0.425em 0.5em 0 #cecece;
+    transition: 0.15s ease;
+    cursor: pointer;
+    margin-top: 4rem;
+    margin-bottom: 5.3rem;
+
+}
+
+.card .btn2:active {
+    translate: 0 0.225em;
+    box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+      0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+      0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+}
+
+
+.card .btn3{
+    font: inherit;
+    background-color: #f0f0f0;
+    border: 0;
+    color: #083484;
+    border-radius: 0.5em;
+    font-size: 1.1rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 #fff;
+    box-shadow: inset 0 0.0625em 0 0 #f4f4f4, 0 0.0625em 0 0 #efefef,
+        0 0.125em 0 0 #ececec, 0 0.25em 0 0 #e0e0e0, 0 0.3125em 0 0 #dedede,
+        0 0.375em 0 0 #dcdcdc, 0 0.425em 0 0 #cacaca, 0 0.425em 0.5em 0 #cecece;
+    transition: 0.15s ease;
+    cursor: pointer;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+}
+
+.card .btn3:active {
+    translate: 0 0.225em;
+    box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef,
+      0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede,
+      0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+  }
+
+
+
+
+/*------------------------------------------------------------------------------*/
+
+/* upload an image to apply object detecton */
+
+.card label{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+}
+
+
+
+
+
+/*------------------------------------------------------------------------------*/
+
+/* footer */
+
+footer{
+    background-color: #083484;
+    color: #fff;
+    padding: 50px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 620px;
+    display: none;
+}
+
+footer h3{
+    font-size: 30px;
+}
+
+footer .right{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 26px;
+}
+
+footer .right .links{
+    display: flex;
+    gap: 30px;
+}
+
+footer .right .links a{
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+footer .right .links a:hover{
+    color: #fff;
+}
+
+footer .right .social{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .right .social i{
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+footer .right .social i:hover{
+    color: #304ffe;
+}
+
+footer .right p{
+    font-size: 13px;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+/*------------------------------------------------------------------------------*/
+
+/* responsiveness */
+
+@media screen and (max-width: 1400px) {
+    
+
+    footer{
+        padding: 100px 40px;
+    }
+
+    footer h3{
+        font-size: 26px;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    
+
+
+    footer .links a{
+        font-size: 15px;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+    
+    
+
+    footer{
+        flex-direction: column;
+        padding: 60px 40px;
+    }
+
+    footer h3{
+        margin-bottom: 40px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    footer .right{
+        width: 100%;
+        align-items: center;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    
+   
+    footer{
+        padding: 40px 20px;
+    }
+
+    footer h3{
+        margin-bottom: 40px;
+        font-size: 27px;
+        text-align: center;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    
+   
+    footer h3{
+        margin-bottom: 40px;
+        font-size: 23px;
+        text-align: center;
+    }
+
+}
