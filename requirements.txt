@@ -1,0 +1,7 @@
+Flask==3.0.1
+ultralytics==8.3.23
+sahi==0.11.18
+numpy==1.24.2
+opencv-python-headless==4.10.0.84
+Pillow==10.4.0
+requests==2.31.0
