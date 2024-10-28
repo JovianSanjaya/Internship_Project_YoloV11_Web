@@ -3,18 +3,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebas
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
 import { getDatabase, ref as dbRef, set } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-// Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: process.env.API_KEY,
-//   authDomain: process.env.AUTH_DOMAIN,
-//   databaseURL: process.env.DATABASE_URL,
-//   projectId: process.env.PROJECT_ID,
-//   storageBucket: process.env.STORAGE_BUCKET,
-//   messagingSenderId: process.env.MESSAGING_SENDER_ID,
-//   appId: process.env.APP_ID,
-//   measurementId: process.env.
-// };
-
 
 const firebaseConfig = {
     apiKey: "AIzaSyBYYHgbI13ckuX7eoHji0YggOkgcvAvZnI",
@@ -121,12 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-
-
-
 // Store the uploaded image file and annotation in zip
 let uploadedFile = null;
 let annotationJSON = null;
@@ -143,70 +125,6 @@ function uploadImage() {
 }
 
 window.uploadImage = uploadImage;
-
-
-
-
-
-// async function applyDetection() {
-//     if (!uploadedFile) {
-//         alert("Please upload an image first.");
-//         return;
-//     }
-
-
-//     // Show loader
-//     const loader = document.getElementById('loader');
-//     loader.style.display = 'block';
-    
-
-//     const formData = new FormData();
-//     formData.append('file', uploadedFile);
-
-//     try {
-//         const response = await fetch('/object-detection/', {
-//             method: 'POST',
-//             body: formData
-//         });
-
-//         if (response.ok) {
-//             // Get the zip file from the response
-//             const zipBlob = await response.blob();
-//             const zipFile = await JSZip.loadAsync(zipBlob);
-
-//             // Extract the image and annotations from the zip file
-//             const imageFile = zipFile.file("prediction_visual.png");
-//             const annotationFile = zipFile.file("annotations.json");
-
-//             if (imageFile && annotationFile) {
-//                 // Display the image
-//                 const imageBlob = await imageFile.async("blob");
-//                 const imageURL = URL.createObjectURL(imageBlob);
-//                 const outputImage = document.getElementById('output-image');
-//                 outputImage.src = imageURL;
-//                 outputImage.style.display = 'block';
-
-//                 // Display the annotations as JSON
-//                 const annotationText = await annotationFile.async("string");
-//                 annotationJSON = JSON.parse(annotationText);
-
-//             }
-//         } else {
-//             const errorText = await response.text();
-//             console.error('Error:', errorText);
-//             alert('Error: ' + errorText);
-//         }
-//     } catch (error) {
-//         console.error('Error processing detection:', error);
-//         alert('An error occurred while processing the detection.');
-//     }
-//     finally{
-//          // Hide loader
-//          loader.style.display = 'none';
-//     }
-// }
-
-
 
 
 
@@ -273,6 +191,10 @@ async function applyDetection() {
         loader.style.display = 'none';
     }
 }
+
+
+
+
 
 // Upload image to Firebase Storage and store the image URL and annotations in Realtime Database
 async function uploadImageToFirebase(imageBlob, annotationJSON) {
