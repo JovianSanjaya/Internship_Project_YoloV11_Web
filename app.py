@@ -1,23 +1,20 @@
-from flask import Flask, request, render_template
-from ultralytics import YOLO
+from flask import Flask, request, render_template, send_file, jsonify
 import numpy as np
 from PIL import Image
-import cv2
 from sahi.predict import get_sliced_prediction
-from sahi import AutoDetectionModel  # Import the AutoDetectionModel
+from sahi import AutoDetectionModel
 import os
 import zipfile
 import io
 import json
-import os
-import numpy as np
-from PIL import Image
-from flask import Flask, request, send_file, jsonify
+
 
 app = Flask(__name__)
 
+
 class Detection:
     def __init__(self):
+
         # Set the model path andonfidence threshold
         yolov8_model_path = "./object_detection/best.pt"  # Update to your model path
 
@@ -32,6 +29,7 @@ class Detection:
         self.class_labels = {0: 'Nicks', 1: 'Dents', 2: 'Scratches', 3: 'Pittings'}
        
     def detect_from_image(self, image):
+     
 
         # Perform sliced prediction with SAHI
         results = get_sliced_prediction(
@@ -77,12 +75,16 @@ def apply_detections():
             output_filename = os.path.join(temp_dir, "prediction_visual.png")
             annotation_filename = os.path.join(temp_dir, "annotations.json")
 
+        
+
             # Save visualized detection results to an image file
             results.export_visuals(
                 export_dir=temp_dir,  # Use the temporary directory for export
                 text_size=0.4,
                 rect_th=2
             )
+
+           
 
             # Load the visualized image into a BytesIO buffer
             img_buffer = io.BytesIO()
@@ -109,6 +111,7 @@ def apply_detections():
 
             # Move the zip buffer cursor to the beginning so it can be sent
             zip_buffer.seek(0)
+
 
             # Send the zip file to the client
             return send_file(zip_buffer, mimetype='application/zip', as_attachment=True, download_name="detection_results.zip")

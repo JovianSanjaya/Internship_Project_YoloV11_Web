@@ -1,5 +1,8 @@
 node-modules/
 venv/
+__pycache__/
+memory_Log.py
+
 
 # Logs
 logs

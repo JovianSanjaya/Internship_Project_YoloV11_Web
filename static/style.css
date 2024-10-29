@@ -208,7 +208,7 @@ header .left a span{
 .offline .card.visible {
     opacity: 1; /* Show the card */
     transform: translateY(0) ; /* Move back to original position */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Add shadow */
 
 }
 
